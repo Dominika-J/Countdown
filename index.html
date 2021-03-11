@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Corona-Countdown</title>
 </head>
+
 <body>
-    
+    <div class="year" id="year"></div>
+    <h1>Jak dlouho už žiju v Coroně?</h1>
+
+    <div class="countdown" id="countdown">
+        <div class="time">
+            <div id="days">00</div>
+            <small>dny</small>
+        </div>
+        <div class="time">
+            <div id="hours">00</div>
+            <small>hodiny</small>
+        </div>
+        <div class="time">
+            <div id="minutes">00</div>
+            <small>minuty</small>
+        </div>
+        <div class="time">
+            <div id="seconds">00</div>
+            <small>sekundy</small>
+        </div>
+    </div>
+
+    <div class="loader" id="loader">Loading...</div>
+
+    <script src="./script.js"></script>
 </body>
+
 </html>
