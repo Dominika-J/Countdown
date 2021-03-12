@@ -1,0 +1,21 @@
+const ONE_DAY_IN_MILISEC = 24 * 60 * 60 * 1000; 
+const HOUR_IN_MILISEC = 1000 * 60 * 60;
+
+const endDate = new Date(); //dnesni datum
+const startDate = new Date(2020,03,01,0,0,); //vychozi datum
+const diffMilisec = Math.abs(endDate - startDate); // rozdil dnesni - vychozi v milisec
+const hourLeftMilisec = diffMilisec
+const milisecResult = Math.floor(diffMilisec/ONE_DAY_IN_MILISEC); // vysledek v milisec
+
+console.log(milisecResult);
+console.log(diffMilisec);
+console.log((diffMilisec % ONE_DAY_IN_MILISEC) / HOUR_IN_MILISEC);
+
+const hoursResult = Math.floor((diffMilisec % ONE_DAY_IN_MILISEC) / HOUR_IN_MILISEC);
+console.log(hoursResult);
+
+document.getElementById('days').innerHTML = milisecResult;
+document.getElementById('hours').innerHTML = hoursResult;
+
+
+
