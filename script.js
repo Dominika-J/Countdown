@@ -1,3 +1,4 @@
+const $years = document.getElementById('years');
 const $days = document.getElementById('days');
 const $hours = document.getElementById('hours');
 const $minutes = document.getElementById('minutes');
@@ -11,12 +12,22 @@ function timeDiffCalc(dateFuture, dateNow) {
     const SECONDS = 60;
     const MINUTES_PER_HOUR = 60;
     const HOURS_PER_DAY = 24;
+    const NUMBER_OF_DAYS_IN_YEAR = 365;
 
     let diffInMilliSeconds = Math.abs(dateFuture - dateNow) / 1000;
     
+    //calculate years
+    const years = Math.ceil(diffInMilliSeconds/31536000000);
+    console.log(years);
+
     // calculate days
     const days = Math.floor(diffInMilliSeconds / SECONDS_PER_DAY);
     diffInMilliSeconds -= days * SECONDS_PER_DAY;
+    // if (days > 365) {
+    //    days = days - NUMBER_OF_DAYS_IN_YEAR;
+    // } else {
+    //    days
+    // }
 
     // calculate hours
     const hours = Math.floor(diffInMilliSeconds / MILISEC_IN_HOUR) % HOURS_PER_DAY;
@@ -31,6 +42,7 @@ function timeDiffCalc(dateFuture, dateNow) {
     diffInMilliSeconds -= seconds * SECONDS;
 
     return {
+      years,
       days,
       hours,
       minutes,
@@ -39,7 +51,8 @@ function timeDiffCalc(dateFuture, dateNow) {
 }
 
     setInterval(function() { 
-      const { days, hours, minutes, seconds } = timeDiffCalc(new Date(), new Date(COVID_INCEPTION_IN_CZ));
+      const { years, days, hours, minutes, seconds } = timeDiffCalc(new Date(), new Date(COVID_INCEPTION_IN_CZ));
+      $years.innerHTML = years;
       $days.innerHTML = days;
       $hours.innerHTML = hours;
       $minutes.innerHTML =  minutes;
