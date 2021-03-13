@@ -101,3 +101,10 @@ small {
   margin-top: 10px;
 }
 
+.year {
+  font-size: 200px;
+  z-index: -1;
+  opacity: 0.3;
+  position: absolute;
+  top: 600px;
+}

@@ -7,39 +7,36 @@ const $seconds = document.getElementById('seconds');
 const COVID_INCEPTION_IN_CZ = '2020/03/1 00:00:00';
 
 function timeDiffCalc(dateFuture, dateNow) {
-    const SECONDS_PER_DAY = 86400;
-    const MILISEC_IN_HOUR = 3600;
-    const SECONDS = 60;
+    const MIN_IN_SEC = 60;
+    const HOUR_IN_SEC = 60 * MIN_IN_SEC;
+    const DAY_IN_SEC = 24 * HOUR_IN_SEC;
+    const YEAR_IN_SEC = 365 * DAY_IN_SEC;
+
+    const SECONDS_PER_MINUTE = 60;
     const MINUTES_PER_HOUR = 60;
     const HOURS_PER_DAY = 24;
-    const NUMBER_OF_DAYS_IN_YEAR = 365;
+    const DAYS_PER_YEAR = 365.242199;
 
-    let diffInMilliSeconds = Math.abs(dateFuture - dateNow) / 1000;
+    let diffInSeconds = Math.abs(dateFuture - dateNow) / 1000;
     
     //calculate years
-    const years = Math.ceil(diffInMilliSeconds/31536000000);
-    console.log(years);
+    const years = Math.floor(diffInSeconds/YEAR_IN_SEC);
+    diffInSeconds -= years * YEAR_IN_SEC;
 
     // calculate days
-    const days = Math.floor(diffInMilliSeconds / SECONDS_PER_DAY);
-    diffInMilliSeconds -= days * SECONDS_PER_DAY;
-    // if (days > 365) {
-    //    days = days - NUMBER_OF_DAYS_IN_YEAR;
-    // } else {
-    //    days
-    // }
+    const days = Math.floor(diffInSeconds / DAY_IN_SEC);
+    diffInSeconds -= days * DAY_IN_SEC;
 
     // calculate hours
-    const hours = Math.floor(diffInMilliSeconds / MILISEC_IN_HOUR) % HOURS_PER_DAY;
-    diffInMilliSeconds -= hours * MILISEC_IN_HOUR;
+    const hours = Math.floor(diffInSeconds / HOUR_IN_SEC);
+    diffInSeconds -= hours * HOUR_IN_SEC;
 
     // calculate minutes
-    const minutes = Math.floor(diffInMilliSeconds / SECONDS) % MINUTES_PER_HOUR;
-    diffInMilliSeconds -= minutes * SECONDS;
+    const minutes = Math.floor(diffInSeconds / SECONDS_PER_MINUTE);
+    diffInSeconds -= minutes * SECONDS_PER_MINUTE;
 
     // calculate seconds
-    const seconds = Math.floor(diffInMilliSeconds) % MINUTES_PER_HOUR;
-    diffInMilliSeconds -= seconds * SECONDS;
+    const seconds = Math.floor(diffInSeconds);
 
     return {
       years,
@@ -60,5 +57,19 @@ function timeDiffCalc(dateFuture, dateNow) {
    }, 1000);
 
 
+  //  const test = () => {
+  //     console.log('Testing timeDiffCalc should return correct number of days');
+
+  //     const dateA = new Date('2023/03/20 00:00:00');
+  //     const dateB = new Date('2020/03/1 00:00:00');
+  //     const result = timeDiffCalc(dateA, dateB);
+
+  //     if (result.days === 19) {
+  //       console.log('success');
+  //     } else {
+  //       console.log('failed', result);
+  //     }
+  //  }
+  //  test();
 
   
