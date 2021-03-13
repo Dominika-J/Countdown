@@ -3,6 +3,7 @@ const $days = document.getElementById('days');
 const $hours = document.getElementById('hours');
 const $minutes = document.getElementById('minutes');
 const $seconds = document.getElementById('seconds');
+const loader = document.getElementById('loader');
 
 const COVID_INCEPTION_IN_CZ = '2020/03/1 00:00:00';
 
@@ -56,7 +57,12 @@ function timeDiffCalc(dateFuture, dateNow) {
       $seconds.innerHTML = seconds;
    }, 1000);
 
+   setTimeout(() => {
+    loader.remove();
+    countdown.style.display = 'flex';
+  }, 1000);
 
+  
   //  const test = () => {
   //     console.log('Testing timeDiffCalc should return correct number of days');
 
