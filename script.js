@@ -3,7 +3,12 @@ const $days = document.getElementById('days');
 const $hours = document.getElementById('hours');
 const $minutes = document.getElementById('minutes');
 const $seconds = document.getElementById('seconds');
-const loader = document.getElementById('loader');
+const $loader = document.getElementById('loader');
+const $yearsUnit = document.getElementById('years-unit');
+const $daysUnit = document.getElementById('days-unit');
+const $hoursUnit = document.getElementById('hours-unit');
+const $minutesUnit = document.getElementById('minutes-unit');
+const $secondsUnit = document.getElementById('seconds-unit');
 
 const COVID_INCEPTION_IN_CZ = '2020/03/1 00:00:00';
 
@@ -14,9 +19,9 @@ function timeDiffCalc(dateFuture, dateNow) {
     const YEAR_IN_SEC = 365 * DAY_IN_SEC;
 
     const SECONDS_PER_MINUTE = 60;
-    const MINUTES_PER_HOUR = 60;
-    const HOURS_PER_DAY = 24;
-    const DAYS_PER_YEAR = 365.242199;
+    // const MINUTES_PER_HOUR = 60;
+    // const HOURS_PER_DAY = 24;
+    // const DAYS_PER_YEAR = 365.242199;
 
     let diffInSeconds = Math.abs(dateFuture - dateNow) / 1000;
     
@@ -50,15 +55,55 @@ function timeDiffCalc(dateFuture, dateNow) {
 
     setInterval(function() { 
       const { years, days, hours, minutes, seconds } = timeDiffCalc(new Date(), new Date(COVID_INCEPTION_IN_CZ));
+      
       $years.innerHTML = years;
+        if (years <= 1) {
+          $yearsUnit.innerText = 'rok'
+        } else if (years > 1 && years < 5) {
+          $yearsUnit.innerText = 'roky'
+        } else if (years >= 5) {
+          $yearsUnit.innerText = 'let'
+        }
+
       $days.innerHTML = days;
+      if (days <= 1) {
+        $daysUnit.innerText = 'den'
+      } else if (days > 1 && days < 5) {
+        $daysUnit.innerText = 'dny'
+      } else if (days >= 5) {
+        $daysUnit.innerText = 'dnů'
+      }
+
       $hours.innerHTML = hours;
+      if (hours <= 1) {
+        $hoursUnit.innerText = 'hodina'
+      } else if (hours > 1 && hours < 5) {
+        $hoursUnit.innerText = 'hodiny'
+      } else if (hours >= 5) {
+        $hoursUnit.innerText = 'hodin'
+      }
+
       $minutes.innerHTML =  minutes;
+      if (minutes <= 1) {
+        $minutesUnit.innerText = 'minuta'
+      } else if (minutes > 1 && minutes < 5) {
+        $minutesUnit.innerText = 'minuty'
+      } else if (minutes >= 5) {
+        $minutesUnit.innerText = 'minut'
+      }
+
       $seconds.innerHTML = seconds;
+      if (seconds <= 1) {
+        $secondsUnit.innerText = 'sekunda'
+      } else if (seconds > 1 && seconds < 5) {
+        $secondsUnit.innerText = 'sekundy'
+      } else if (seconds >= 5) {
+        $secondsUnit.innerText = 'sekund'
+      }
    }, 1000);
 
    setTimeout(() => {
-    loader.remove();
+    $loader.remove();
     countdown.style.visibility = 'visible';
   }, 1000);
 
