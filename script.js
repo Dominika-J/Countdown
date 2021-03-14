@@ -59,7 +59,7 @@ function timeDiffCalc(dateFuture, dateNow) {
 
    setTimeout(() => {
     loader.remove();
-    countdown.style.display = 'flex';
+    countdown.style.visibility = 'visible';
   }, 1000);
 
   
