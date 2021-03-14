@@ -97,12 +97,12 @@ function timeDiffCalc(dateFuture, dateNow) {
     },
     minutes: {
       0: 'minut',
-      1: 'minuta',
+      1: 'minutu',
       2: 'minuty',
     },
     seconds: {
       0: 'sekund',
-      1: 'sekunda',
+      1: 'sekundu',
       2: 'sekundy',
     }
   };
@@ -121,8 +121,6 @@ function timeDiffCalc(dateFuture, dateNow) {
     }
     return inflectionTranslations[timeUnit][timeIndex];
   }
-
-
 
   //  const test = () => {
   //     console.log('Testing timeDiffCalc should return correct number of days');
