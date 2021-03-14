@@ -116,10 +116,23 @@ small {
   margin-top: 10px;
 }
 
-.year {
+/* .year {
   font-size: 200px;
   z-index: -1;
   opacity: 0.3;
   position: absolute;
   top: 600px;
+} */
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 30px;
+  }
+  .time {
+    font-size: 23px;
+  }
+  .countdown {
+    display: block;
+  }
 }
+
