@@ -85,11 +85,6 @@ function timeDiffCalc(dateFuture, dateNow) {
       1: 'den',
       2: 'dny',
     }, 
-    months: {
-      0: 'měsíců',
-      1: 'měsíc',
-      2: 'měsíce',
-    },
     hours: {
       0: 'hodin',
       1: 'hodina',
