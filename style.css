@@ -42,7 +42,6 @@ h1 {
 .countdown {
   visibility: hidden;
   display: flex;
-  font-size: 30px;
   opacity: 1;
   animation-name: fadeInOpacity;
   animation-iteration-count: 1;
@@ -56,6 +55,14 @@ h1 {
   margin: 10px;
   align-items: center;
   justify-content: center;
+}
+
+.time .value {
+  font-size: 35px;
+}
+
+.time .unit {
+  font-size: 16px;
 }
 
 small {
@@ -94,9 +101,14 @@ small {
   h1 {
     font-size: 30px;
   }
-  .time {
-    font-size: 25px;
+  .time .value {
+    font-size: 30px;
   }
+  
+  .time .unit {
+    font-size: 16px;
+  }
+  
   .countdown {
     display: block;
   }
