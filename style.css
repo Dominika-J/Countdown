@@ -10,7 +10,7 @@ body {
   letter-spacing: 1px;
   margin: 0;
   overflow: hidden;
-  background: url(./img/covid.jpg);
+  background: url(./img/covid-vaccine.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -25,7 +25,7 @@ body {
 body::after {
   content: "";
   background: black;
-  opacity: 0.7;
+  opacity: 0.6;
   top: 0;
   left: 0;
   bottom: 0;
@@ -95,9 +95,14 @@ small {
     font-size: 30px;
   }
   .time {
-    font-size: 23px;
+    font-size: 25px;
   }
   .countdown {
     display: block;
+  }
+  body {
+    background: url(./img/covid-vaccine2.jpg);
+    background-position: center;
+    background-size: cover;
   }
 }
