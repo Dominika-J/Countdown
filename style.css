@@ -100,16 +100,16 @@ small {
 /* media */
 @media (max-width: 500px) {
   h1 {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .time {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 
   }
 
   .time .value {
-    font-size: 40px;
+    font-size: 35px;
     font-weight: bold;
   }
   
