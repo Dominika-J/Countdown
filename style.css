@@ -36,7 +36,7 @@ body::after {
 
 h1 {
   font-size: 50px;
-  margin: -40px 20px 30px 20px;
+  margin: 0px 20px 30px 20px;
 }
 
 .countdown {
@@ -102,6 +102,12 @@ small {
   h1 {
     font-size: 40px;
   }
+
+  .time {
+    margin-bottom: 10px;
+
+  }
+
   .time .value {
     font-size: 40px;
     font-weight: bold;
